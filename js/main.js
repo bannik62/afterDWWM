@@ -150,12 +150,12 @@ function getUtilisateur(id) {
 const key = "ba8eb959";
 let error = "encore ratée"
 const search = $('#search');
-const date = $('#date')
+
 
 $(document).ready(function () {
     $("#search").val("");
     $(search).on('input', find)
-    $(date).on('input', find)
+    
 });
 
 function find() {

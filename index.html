@@ -59,8 +59,8 @@
         }
 
         .bgmain {
-           max-width: 600px;
-           min-width: 300px;
+            max-width: 600px;
+            min-width: 300px;
             max-height: 500px;
             min-height: 50px;
             background-image: url(image/FB_IMG_1673561241675.jpg);
@@ -75,6 +75,21 @@
             margin: 10px;
             color: rgb(51, 50, 50);
             font-size: 5rem;
+        }
+
+        .cd {
+           border-radius: 50%;
+            animation: rotation 1s linear infinite;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .divtexte {
@@ -117,8 +132,9 @@
         .central {
             width: 100%;
         }
-        .central2{
-          border: 2px solid black;
+
+        .central2 {
+            border: 2px solid black;
 
 
 
@@ -127,6 +143,7 @@
         .btn {
             margin: 10px;
         }
+
         .cardAdress {
             width: 350px;
             height: 350px;
@@ -134,10 +151,10 @@
             border-radius: 17px;
             background: white;
             box-shadow: 3px 3px 4px #cecece,
-                -7px -7px 14px #2b2b2b;  
-                background-color: gainsboro;    
-                opacity: 10; 
-                padding: 3px;  
+                -7px -7px 14px #2b2b2b;
+            background-color: gainsboro;
+            opacity: 10;
+            padding: 3px;
         }
 
 
@@ -145,22 +162,23 @@
             width: 450px;
             height: 550px;
             border-left: 50px dashed black;
-            border-right: 50px dashed black ;
+            border-right: 50px dashed black;
             box-shadow: 3px 3px 4px #cecece,
-                -7px -7px 14px #2b2b2b;  
-                background-color: gainsboro;    
-                opacity: 10; 
-                padding: 3px;     
+                -7px -7px 14px #2b2b2b;
+            background-color: gainsboro;
+            opacity: 10;
+            padding: 3px;
         }
 
-                .cardFilm {
+        .cardFilm {
             width: 320px;
             height: 200px;
             background-color: darkgray;
             border-radius: 17px;
             background: #010101b2;
         }
-        h5{
+
+        h5 {
             padding: 3px;
         }
     </style>
@@ -183,18 +201,22 @@
                     <a class="nav-link btn btn-dark" href="#">Link 3</a>
                 </div>
             </div>
-            <div style="width:500px;" id="user"> <script> console.log(localStorage.getItem('pseudo'));
-                function  titre(){ 
+            <script> console.log(localStorage.getItem('pseudo'));
+                function titre() {
                     let storedPseudo = localStorage.getItem('pseudo')
                     console.log(storedPseudo);
-                    if(storedPseudo != "" ){
-                       $("#user").html('<h5> bienvenue '+ storedPseudo + '</h5>');
-                    }}</script></div>
+                    if (storedPseudo != "") {
+                        $("#user").html('<h5> bienvenue ' + storedPseudo + '</h5>');
+                    }
+                }</script>
+            <div style="width:500px;" id="user"> </div>
             <a class="navbar-brand logo " href="#"><img src="image/logo.jpg" alt="logo" width="140px"></a>
         </div>
     </nav>
-    <div class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
-        <h1 class="titre text-center">Planete DvD <img src="image/" alt=""></h1>
+    <div
+        class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
+        <h1 class="titre text-center">Planete DvD <span class="cd"> <img src="image/cd.png" alt="cdrom"
+                    width="100px" height="100px"></span></h1>
         <div class="central container bg-dark">
             <div class="container m-4 main d-flex ">
 
@@ -214,8 +236,7 @@
                 <div class="bgmain img-fluid">
                     <div class=" divtexte m-5">
                         <p class="p-5 text-wrap" id="intro">
-                            <img src="image/tboys.jpg" class=" float-right m-2 " width="250px" height="200px"
-                                alt="">
+                            <img src="image/tboys.jpg" class=" float-right m-2 " width="250px" height="200px" alt="">
                             Planete DVD est une boutique hors du temps à Calais. <br> Ici, on trouve
                             beaucoup de films <br>
                             qui n'existent plus ou que l'on a du mal à trouver sur les sites Internet", confie un
@@ -284,17 +305,17 @@
 
         </div>
     </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-            integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="js/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
-            integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+        integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
     <footer class="navbar-expand-lg bg-light d-flex justify-content-around align-items-center text-light">
         <script>date = new Date().toLocaleString();</script>
 
@@ -350,8 +371,6 @@
                 <div class="modal-body">
                     <form method="GET">
                         <div class="md-form d-flex flex-column justify-content-around " required>
-
-
 
                             <label for="nom" action="http://localhost:3000/utillisateurs/">Nom</label>
                             <input type="text" name="nom" id="nom" class="form-control" required>
