@@ -21,7 +21,7 @@
             height: 120px;
             background-size: cover;
             background-image: url(image/35562c7854049dc.jpg);
-            filter: opacity(50%);
+          
 
         }
 
@@ -78,11 +78,14 @@
         }
 
         .cd {
-           border-radius: 50%;
+            margin: 0;
+            border-radius: 50%;
             animation: rotation 1s linear infinite;
+            transform-origin: center center;
+            background: white;
         }
 
-        @keyframes rotation {
+        /* @keyframes rotation {
             from {
                 transform: rotate(0deg);
             }
@@ -90,7 +93,7 @@
             to {
                 transform: rotate(360deg);
             }
-        }
+        } */
 
         .divtexte {
             max-width: 650px;
@@ -215,8 +218,9 @@
     </nav>
     <div
         class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
-        <h1 class="titre text-center">Planete DvD <span class="cd"> <img src="image/cd.png" alt="cdrom"
-                    width="100px" height="100px"></span></h1>
+        <h1 class="titre text-center text-white align-items-center p-3 bg-dark rounded-pill">Planete DvD <span
+                class="spancd m-4 rounded-circle"> <img src="image/cd.png" class="cd rounded-circle" alt="cdrom"
+                    width="80px" height="80px"></span></h1>
         <div class="central container bg-dark">
             <div class="container m-4 main d-flex ">
 
@@ -353,7 +357,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermé</button>
-                    <button type="button" id="connect" onclick="connexion()" class="btn btn-primary">Connexion</button>
+                    <button type="button" id="connect" onclick="connexion()" class="btn btn-dark">Connexion</button>
                 </div>
             </div>
         </div>
@@ -395,7 +399,7 @@
                             <input type="password" id="password_ins" class="form-control">
                     </form>
 
-                    <button type="button" onclick="addUtilisateur()" class="btn btn-primary">Inscription</button>
+                    <button type="button" onclick="addUtilisateur()" class="btn btn-dark">Inscription</button>
 
 
                 </div>
