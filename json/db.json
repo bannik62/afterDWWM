@@ -1,0 +1,26 @@
+{
+  "utilisateurs": [
+    {
+      "id": 1,
+      "nom": "Doe",
+      "prenom": "John",
+      "pseudo": "johndoe",
+      "adresse": "123 Main St",
+      "telephone": "0000000000",
+      "email": "yo@yo.yo",
+      "password": "nono",
+      "role": "client"
+    },
+    {
+      "nom": "noah",
+      "prenom": "vanhs",
+      "telephone": "0000000000",
+      "adresse": "25 rue des fleur",
+      "pseudo": "nono",
+      "password": "lolo",
+      "email": "FF@FF.fr",
+      "id": 2,
+      " role": "admin"
+    }
+  ]
+}
