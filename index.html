@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css"
         integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
 
     </style>
@@ -29,12 +29,16 @@
                         data-bs-target="#connexion">Connexion</a>
                     <a class="nav-link btn btn-dark" href="#" data-bs-toggle="modal"
                         data-bs-target="#inscription ">Inscription</a>
-                    <a class="nav-link btn btn-dark" onclick="deco()"  href="#">Deconnexion</a>
-                     
-                    <div style="width:500px;" id="user">
-                        <div style="width:100px;" >
-                        <a class="nav-link btn btn-dark" onclick="gestion()" href="#" >gestion</a>
+                    <a class="nav-link btn btn-dark" onclick="deco()" href="#">Deconnexion</a>
+
+                    <div style="width:500px;" id="user" class="d-flex flex-column ">
+                        <div style="width:100px;">
+                            <a class="nav-link btn btn-dark" onclick="gestion()" href="#">gestion</a>
                         </div>
+                        <div style="width:100px;">
+                            <a class="nav-link btn btn-dark" href="index.html">acceuil</a>
+                        </div>
+
                     </div>
                     <a class="navbar-brand  " href="#"><img src="image/logo.jpg" class="logo img-fluid" alt="logo"></a>
                 </div>
@@ -49,7 +53,7 @@
                 class="spancd m-4 rounded-circle"> <img src="image/cd.png" class="cd rounded-circle" alt="cdrom"
                     width="80px" height="80px"></span></h1>
         <div class="central container bg-dark">
-           
+
             <div class="container m-4 main d-flex flex-wrap ">
 
                 <div id="" class="right-menu m-3">
@@ -65,7 +69,7 @@
                         <img src="image/Omdb-logo.png" alt="">
                     </div>
                 </div>
-               
+
                 <div class="bgmain img-fluid">
                     <div class=" divtexte m-5">
                         <p class="p-5 text-wrap" id="intro">
@@ -86,7 +90,7 @@
             </div>
         </div>
 
-        <div class=" central2 container m-5 d-flex justify-content-around  flex-wrap">
+        <div class=" central2 container m-5 d-flex justify-content-around  flex-md-column align-items-center">
 
             <div class="caroussel w-25 h-25 m-3">
                 <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
