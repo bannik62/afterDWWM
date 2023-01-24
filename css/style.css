@@ -1,0 +1,220 @@
+body {
+    height: auto;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), #000000);
+
+    /* pour positionner le dégradé au milieu */
+}
+
+.navbar {
+    height: 120px;
+    background-size: cover;
+    background-image: url(../image/35562c7854049dc.jpg);
+
+
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.right-menu {
+    flex-basis: 20%;
+
+}
+
+footer {
+    background-image: url(../image/hobbit-banniere-film-voyage-Copie.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 110px;
+    font-size: 2rem;
+
+}
+
+#date-time {
+    float: right;
+}
+
+.navbar-left {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bgmain {
+    max-width: 600px;
+    min-width: 300px;
+    max-height: 500px;
+    min-height: 50px;
+    background-image: url(../image/FB_IMG_1673561241675.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: border solid 20px rgba(255, 255, 255, 0.067);
+
+
+}
+
+h1 {
+    margin: 10px;
+    color: rgb(51, 50, 50);
+    font-size: 5rem;
+}
+
+.cd {
+    margin: 0;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+    transform-origin: center center;
+    background: white;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.divtexte {
+    max-width: 650px;
+    max-height: 300px;
+    background-color: #0000009a;
+    color: white;
+    border: 3px solid white;
+    clear: both;
+    overflow: scroll;
+
+}
+
+.logo {
+    width: 140px;
+    border-radius: 40%;
+    background-image: url(../image/logorbg.png);
+    background-size: cover;
+}
+
+.caroussel {
+    box-shadow: 3px 3px 4px #cecece,
+        -7px -7px 14px #2b2b2b;
+    border: 1px solid black;
+    width: 360px;
+    max-height: 360px;
+}
+
+.map {
+    width: 350px;
+    height: 350px;
+    background-color: #e0e0e0;
+    box-shadow: 3px 3px 4px #cecece,
+        -7px -7px 14px #2b2b2b;
+    border: 1px solid black;
+
+}
+
+.central {
+    width: 100%;
+}
+
+.central2 {
+    border: 2px solid black;
+
+
+    background: black;
+}
+
+
+.btn {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+
+
+}
+
+.cardAdress {
+    width: 350px;
+    height: 350px;
+    background-color: darkgray;
+    border-radius: 17px;
+    background: white;
+    box-shadow: 3px 3px 4px #cecece,
+        -7px -7px 14px #2b2b2b;
+    background-color: gainsboro;
+    opacity: 10;
+    padding: 3px;
+}
+
+
+.card {
+    width: 450px;
+    height: 550px;
+    border-left: 50px dashed black;
+    border-right: 50px dashed black;
+    box-shadow: 3px 3px 4px #cecece,
+        -7px -7px 14px #2b2b2b;
+    background-color: gainsboro;
+    opacity: 10;
+    padding: 3px;
+}
+
+.cardFilm {
+   min-width: 30%;
+   max-width: 90%;
+    height: 200px;
+    background-color: darkgray;
+    border-radius: 17px;
+    background: #010101b2;
+}
+
+h5 {
+    padding: 3px;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    height: 500px;
+    border: 2px solid #8c00ff;
+    animation: neonBorder 1s ease-in-out infinite;
+
+}
+
+@keyframes neonBorder {
+    0% {
+        border-color: #8c00ff;
+        border: 2px 
+    }
+
+    25% {
+        border-color: #fff;
+        border: 10px 
+    }
+
+    50% {
+        border-color: #8c00ff;
+        border: 2px 
+    }
+
+    75% {
+        border-color: #fff;
+    }
+
+    100% {
+        border: 10px ;
+        border-color: #8c00ff;
+    }
+
+}
+
+.board>div {
+    width: 25%;
+    border: black solid 2px;
+
+}

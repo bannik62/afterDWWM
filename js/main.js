@@ -1,3 +1,26 @@
+let sessionPseudo = sessionStorage.getItem('pseudo')
+let sessionId = sessionStorage.getItem('id')
+
+
+
+// $(document).ready(
+//     function titre() {
+//         console.log(typeof sessionPseudo);
+
+//         if (typeof sessionPseudo == "null" || sessionPseudo === "") {
+//             $("#user").html("")
+
+//         }
+//         else {
+//             $("#user").html('<h5> bienvenue ' + sessionPseudo + '</h5>');
+//         }
+
+//     });
+
+function deco() {
+    sessionStorage.clear('pseudo')
+    window.location.href = "index.html";
+}
 
 // ---------------api--------------------------------
 
@@ -11,6 +34,7 @@ var utilisateur = {
     pseudo: $("#pseudo_ins").val(),
     password: $("#password_ins").val(),
     email: $("email").val(),
+
 };
 function getUtilisateurs(utilisateur) {
 
@@ -19,7 +43,7 @@ function getUtilisateurs(utilisateur) {
         headers: {
             "Accept": "application/json"
         },
-        url: ' http://localhost:3000/utilisateurs',
+        url: ' http://sessionhost:3000/utilisateurs',
         data: utilisateur,
         success: function (utilisateurs) {
             console.log("coucou");
@@ -50,7 +74,7 @@ function addUtilisateur() {
 
     $.ajax({
         type: 'POST',
-        url: ' http://localhost:3000/utilisateurs',
+        url: ' http://sessionhost:3000/utilisateurs',
         data: utilisateur,
         success: function (utilisateur) {
             alert("bienvenue " + utilisateur.pseudo + " tu es inscris")
@@ -85,14 +109,12 @@ function connexion() {
                 // Vérifier si le pseudo et le mot de passe correspondent
 
                 if (utilisateurs[i].pseudo === user.pseudo && utilisateurs[i].password === user.password) {
-                    // Stocker le pseudo et l'ID de l'utilisateur dans le localStorage
-                    let id = localStorage.setItem('id', utilisateurs[i].id)
-                    let pseudo = localStorage.setItem('pseudo',utilisateurs[i].pseudo)
-                    let storedPseudo =localStorage.getItem('pseudo')
-                    // Rediriger vers la page protégée
-                    alert("bienvenu " + storedPseudo)
+                    // Stocker le pseudo et l'ID de l'utilisateur dans le sessionStorage
+                    let id = sessionStorage.setItem('id', utilisateurs[i].id)
+                    let pseudo = sessionStorage.setItem('pseudo', utilisateurs[i].pseudo)
+                    let storedPseudo = sessionStorage.getItem('pseudo')
                     window.location.href = "index.html";
-                    return  ;
+                    return;
                 }
             }
 
@@ -100,13 +122,22 @@ function connexion() {
         })
         .catch(err => console.log(err));
 }
-function titre() { 
-    let storedPseudo = localStorage.getItem('pseudo',pseudo)
-    console.log(storedPseudo);
-    if(storedPseudo != "" ){
-       $("#user").html('<h5> bienvenue '+ storedPseudo + '</h5>')();
-    } 
-     };
+// ///////////////////////////////////////gestion////////////////////////////
+
+function gestion() {
+    $('.central').html('');
+    $(".central").css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+    $('.central').html('<div class="container-fluid board d-flex"><div class="menu1">1</div> <div class="menu2">2</div><div class="menu3">3</div></div> ')
+    $('.menu1').html(
+        '<div class="cardFilm">'+
+        '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
+            '<div class="card-body">'+
+                ' <h4 class="card-title"><a>Card title</a></h4>'+
+                '        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p >'+
+                '<a href="#" class="btn btn-primary">Button</a>'+
+                '</div>'+
+  '</div>'  
+)};
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -154,8 +185,8 @@ const search = $('#search');
 
 $(document).ready(function () {
     $("#search").val("");
-    $(search).on('input', find)
-    
+    $("#search").on('input', find)
+
 });
 
 function find() {
@@ -176,7 +207,7 @@ function find() {
 
             // Si l'utilisateur a saisi plus de 3 caractères
             if (search.val().length >= 3) {
-               
+
                 console.log($("#search").val().length);
                 // On vide la div d'affichage des résultats
                 $('#results').html('');
@@ -191,18 +222,18 @@ function find() {
 
                         // On créée le HTML d'un film (une bootstrap card)
 
-                        let movieHtml = 
-                        
-                        '<div class="card m-3  ">'+ 
-                            '<div class=" cardFilm align-items-center m-3 justify-content-around mx-auto "> '+
-                                '<div class="card-header bg-dark ">  <h5>Titre: &nbsp ' +  movie.Title + '</h5><br/><h5> date de sortie   ' + movie.Year + '</h5></div> '+
-                                '<div class="card-body text-center"><img src="  ' + movie.Poster +' " height="200" max-width="50"></div>'+
-                                
-                                '<div class="card-header bg-dark p-1 rounded-border-bottom"><h5 class="p-1">Type :  '+ movie.Type +'</h5>  <br/><h5>Acteur: '+ movie.Actors +'</h5> </div>'+
-                            '</div>'+ 
-                           ' </div>'+
-                        '</div>';
-;
+                        let movieHtml =
+
+                            '<div class="card m-3  ">' +
+                            '<div class=" cardFilm align-items-center m-3 justify-content-around mx-auto "> ' +
+                            '<div class="card-header bg-dark ">  <h5>Titre: &nbsp ' + movie.Title + '</h5><br/><h5> date de sortie   ' + movie.Year + '</h5></div> ' +
+                            '<div class="card-body text-center"><img src="  ' + movie.Poster + ' " height="200" max-width="50"></div>' +
+
+                            '<div class="card-header bg-dark p-1 rounded-border-bottom"><h5 class="p-1">Type :  ' + movie.Type + '</h5>  <br/><h5>Acteur: ' + movie.Actors + '</h5> </div>' +
+                            '</div>' +
+                            ' </div>' +
+                            '</div>';
+                        ;
                         // On l'ajoute au div de résultats
                         $('#intro').html('<h5 class="text-center">resultat de votre recherche <h5>')
                         $('#results').append(movieHtml);
@@ -231,13 +262,8 @@ function find() {
         }
     })
 };
- console.log(localStorage.getItem('pseudo'));
-function titre() { 
-    let storedPseudo = localStorage.getItem('pseudo')
-    console.log(storedPseudo);
-    if(storedPseudo != "" ){
-       $("#user").html('<h5> bienvenue '+ storedPseudo + '</h5>');
-    } 
-     };
 
+
+
+// html::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
