@@ -75,7 +75,7 @@ function addUtilisateur() {
 
     $.ajax({
         type: 'POST',
-        url: ' http://sessionhost:3000/utilisateurs',
+        url: ' http://localhost:3000/utilisateurs',
         data: utilisateur,
         success: function (utilisateur) {
             alert("bienvenue " + utilisateur.pseudo + " tu es inscris")
@@ -127,22 +127,49 @@ function connexion() {
 
 
 
-
 function gestion() {
+
+
+  
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:3000/utilisateurs',
+    dataType: 'json',
+    success: function (data) {
+      let count = data.length;
+      console.log("Le nombre d'utilisateurs est: " + count);
+    },
+    error: function (xhr, status, error) {
+      console.log("Error: " + error);
+    }
+  });
+    
+
     $('.central').html(''); //je vide la div central
     // je genere une div   
     $('.central').html('<div class="container-fluid board"><div class="d-flex flex-row justify-content-around w-100 h-100 p-4"><div class="menu1 m-5">1</div> <div class="menu2">2</div><div class="menu3">3</div></div></div> ').css({ 'padding': '2px','border':'3px solid #0bddd2','outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '600px', 'width': '900px' });
     
-    $('.menu1').html(
-        '<div class="cardFilm">'+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/utilisateurs',
+        dataType: 'json',
+    }).then((data)=>{
+      let count = data.length;
+      console.log("Le nombre d'utilisateurs est: " + count);
+      $('.menu1').html(
+        '<div class="cardFilm "text-bg-light"">'+
         '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
             '<div class="card-body">'+
-                ' <h4 class="card-title"><a>Card title</a></h4>'+
-                '        <p class="card-text">content.</p >'+
-                '<a href="#" class="btn btn-primary">Button</a>'+
+                ' <h4 class="card-title"><a>nombre d\'utilisateur</a></h4>'+
+                '        <p class="card-text">Abonné</p >'+
+                '<h2 style:="color:blue"> '+ count + '</h2>'+
                 '</div>'+
         '</div>'  
-        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+        ).css({ 'color':'white','height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+    }).catch((error) => {
+      console.log("Error: " + error);
+    });
+    
 
         $('.menu2').html(
             '<div class="cardFilm">'+
@@ -165,7 +192,7 @@ function gestion() {
                     '</div>'+
         '</div>'  
         ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
-};
+        }
      ///////////////////////////////////////////////////////////////////////////////
 
 

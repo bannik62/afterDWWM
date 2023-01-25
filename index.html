@@ -2,12 +2,15 @@
 <html lang="fr">
 
 <head>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.min.css"
         integrity="sha512-JQksK36WdRekVrvdxNyV3B0Q1huqbTkIQNbz1dlcFVgNynEMRl0F8OSqOGdVppLUDIvsOejhr/W5L3G/b3J+8w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
 
@@ -30,7 +33,7 @@
                     <a class="nav-link btn btn-dark" href="#" data-bs-toggle="modal"
                         data-bs-target="#inscription ">Inscription</a>
                     <a class="nav-link btn btn-dark" onclick="deco()" href="#">Deconnexion</a>
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                 
 
                     <script> 
                     $(document).ready((()=>{ 
@@ -38,11 +41,11 @@
                     // if ( session === "nono") {
                        console.log(session)
                         $("#bouton").html(
-                            '<div style="width:100px;">'+
-                        '<a class="nav-link btn btn-dark" onclick="gestion()" href="#">gestion</a>'+
+                            '<div style="width:100px; class=" d-flex justify-content-between">'+
+                        '<a class="nav-link btn btn-dark p-3 m-2" height="100px" onclick="gestion()" href="#">gestion</a>'+
                    '</div>' +
                     '<div style="width:100px;">'+
-                        '<a class="nav-link btn btn-dark" href="index.html">acceuil</a>'+
+                        '<a class="nav-link btn btn-dark p-3 m-2" href="index.html">acceuil</a>'+
                    '</div>'
                 //    )}
                 //    else{
