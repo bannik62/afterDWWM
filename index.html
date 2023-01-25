@@ -30,14 +30,26 @@
                     <a class="nav-link btn btn-dark" href="#" data-bs-toggle="modal"
                         data-bs-target="#inscription ">Inscription</a>
                     <a class="nav-link btn btn-dark" onclick="deco()" href="#">Deconnexion</a>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-                    <div style="width:500px;" id="user" class="d-flex flex-column ">
-                        <div style="width:100px;">
-                            <a class="nav-link btn btn-dark" onclick="gestion()" href="#">gestion</a>
-                        </div>
-                        <div style="width:100px;">
-                            <a class="nav-link btn btn-dark" href="index.html">acceuil</a>
-                        </div>
+                    <script> 
+                    $(document).ready((()=>{ 
+                      let session =  sessionStorage.pseudo
+                    // if ( session === "nono") {
+                       console.log(session)
+                        $("#bouton").html(
+                            '<div style="width:100px;">'+
+                        '<a class="nav-link btn btn-dark" onclick="gestion()" href="#">gestion</a>'+
+                   '</div>' +
+                    '<div style="width:100px;">'+
+                        '<a class="nav-link btn btn-dark" href="index.html">acceuil</a>'+
+                   '</div>'
+                //    )}
+                //    else{
+                //      $("#bouton").html("");
+                    )}))
+                </script>
+                    <div style="width:500px;" id="bouton" class="d-flex flex-column  ">
 
                     </div>
                     <a class="navbar-brand  " href="#"><img src="image/logo.jpg" class="logo img-fluid" alt="logo"></a>
@@ -47,12 +59,12 @@
         </div>
 
     </nav>
-    <div
-        class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
-        <h1 class="titre text-center text-white align-items-center p-3 bg-dark rounded-pill">Planete DvD <span
-                class="spancd m-4 rounded-circle"> <img src="image/cd.png" class="cd rounded-circle" alt="cdrom"
+    <div class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
+      
+        <h1 class="titre text-center text-white align-items-center p-4  rounded-pill">Planete DvD <span
+                class="spancd m-4 rounded-circle"> <img src="image/cd.png" class="cd rounded-circle mb-2" alt="cdrom"
                     width="80px" height="80px"></span></h1>
-        <div class="central container bg-dark">
+        <div class="central container ">
 
             <div class="container m-4 main d-flex flex-wrap ">
 
@@ -65,8 +77,8 @@
                         <li class="list-group-item">Catalogue du magasin </li>
                         <li class="list-group-item">Nous contacter</li>
                     </ul>
-                    <div class="p-2 m-2 align-content-center">
-                        <img src="image/Omdb-logo.png" alt="">
+                    <div class="p-2 m-4 align-content-center bg-white">
+                        <img src="image/Omdb-logo.png" alt="logoomdb">
                     </div>
                 </div>
 
@@ -90,25 +102,27 @@
             </div>
         </div>
 
-        <div class=" central2 container m-5 d-flex justify-content-around  flex-md-column align-items-center">
+        <div class="logoc" id="logoc"> </div>
 
-            <div class="caroussel w-25 h-25 m-3">
+        <div class=" central2 container m-5 d-flex justify-content-around flex-md-row flex-sm-column  ">
+
+            <div class="caroussel w-25 h-25 m-3  mx-auto">
                 <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
+                        <div class="carousel-item active mx-auto">
                             <img src="image/FB_IMG_1673561018825.jpg" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
                             <img src="image/FB_IMG_1673561192570.jpg" class="d-block w-100" alt="">
                         </div>
-                        <div class="carousel-item">
+                        <div class="carousel-item  ">
                             <img src="image/FB_IMG_1673561089302.jpg" class="d-block w-100" alt="...">
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <div class="cardAdress m-3">
+                <div class="cardAdress m-3 mx-auto">
                     <div class="card-body">
                         <h5 class="card-title"><u>Adresse:</u></h5>
                         <p class="card-text">46 Bd Gambetta, 62100 Calais</p>
@@ -122,7 +136,7 @@
                 </div>
 
             </div>
-            <div class="map m-3  w-25" id="map">
+            <div class="map m-3  w-25 mx-auto" id="map">
 
                 <script>
                     function initMap() {
@@ -153,19 +167,18 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-    <footer class="navbar-expand-lg bg-light d-flex justify-content-around align-items-center text-light">
-        <script>date = new Date().toLocaleString();</script>
+    <footer id="footer" class=" d-flex justify-content-around align-items-center text-light">
+        <!-- <script>date = new Date().toLocaleString();</script> -->
 
         <div>
-            <p>2023 © </p>
+            <p class="align-self-sm-end ">2023 ©</p>
         </div>
 
         <div class="logo align-self-center justify-content-center ">
-
-        </div>
-        <div class="  align-self-sm-end ">
+            <img src="image/logorbg.png" class="logo img-fluid" alt="logo">        </div>
+        <div class="align-self-sm-end ">
             <p>
-                <script>document.write(date)</script>
+                <!-- <script>document.write(date)</script> -->
             </p>
         </div>
     </footer>

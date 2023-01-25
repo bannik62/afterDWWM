@@ -3,6 +3,7 @@ let sessionId = sessionStorage.getItem('id')
 
 
 
+
 // $(document).ready(
 //     function titre() {
 //         console.log(typeof sessionPseudo);
@@ -124,23 +125,48 @@ function connexion() {
 }
 // ///////////////////////////////////////gestion////////////////////////////
 
+
+
+
 function gestion() {
-    $('.central').html('');
-    $(".central").css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
-    $('.central').html('<div class="container-fluid board d-flex"><div class="menu1">1</div> <div class="menu2">2</div><div class="menu3">3</div></div> ')
+    $('.central').html(''); //je vide la div central
+    // je genere une div   
+    $('.central').html('<div class="container-fluid board"><div class="d-flex flex-row justify-content-around w-100 h-100 p-4"><div class="menu1 m-5">1</div> <div class="menu2">2</div><div class="menu3">3</div></div></div> ').css({ 'padding': '2px','border':'3px solid #0bddd2','outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '600px', 'width': '900px' });
+    
     $('.menu1').html(
         '<div class="cardFilm">'+
         '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
             '<div class="card-body">'+
                 ' <h4 class="card-title"><a>Card title</a></h4>'+
-                '        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p >'+
+                '        <p class="card-text">content.</p >'+
                 '<a href="#" class="btn btn-primary">Button</a>'+
                 '</div>'+
-  '</div>'  
-)};
+        '</div>'  
+        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
 
+        $('.menu2').html(
+            '<div class="cardFilm">'+
+            '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
+                '<div class="card-body">'+
+                    ' <h4 class="card-title"><a>Card title</a></h4>'+
+                    '        <p class="card-text">content.</p >'+
+                    '<a href="#" class="btn btn-primary">Button</a>'+
+                    '</div>'+
+        '</div>'  
+        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
 
-///////////////////////////////////////////////////////////////////////////////
+        $('.menu3').html(
+            '<div class="cardFilm">'+
+            '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
+                '<div class="card-body">'+
+                    ' <h4 class="card-title"><a>Card title</a></h4>'+
+                    '        <p class="card-text">content.</p >'+
+                    '<a href="#" class="btn btn-primary">Button</a>'+
+                    '</div>'+
+        '</div>'  
+        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+};
+     ///////////////////////////////////////////////////////////////////////////////
 
 
 // Fonction pour mettre à jour un utilisateur
