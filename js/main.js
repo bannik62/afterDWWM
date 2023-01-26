@@ -1,5 +1,7 @@
 let sessionPseudo = sessionStorage.getItem('pseudo')
 let sessionId = sessionStorage.getItem('id')
+// affichage 
+
 
 
 
@@ -27,7 +29,7 @@ function deco() {
 
 
 
-var utilisateur = {
+let utilisateur = {
     nom: $("#nom").val(),
     prenom: $("#prenom").val(),
     telephone: $("#numero").val(),
@@ -63,7 +65,7 @@ function getUtilisateurs(utilisateur) {
 // Fonction pour ajouter un utilisateur
 function addUtilisateur() {
 
-    var utilisateur = {
+    let utilisateur = {
         nom: $("#nom").val(),
         prenom: $("#prenom").val(),
         telephone: $("#numero").val(),
@@ -95,7 +97,7 @@ function connexion() {
 
 
     console.log("hello world");
-    var user = {
+    let user = {
         pseudo: $("#pseudo_co").val(),
         password: $("#password_co").val(),
     }
@@ -106,7 +108,7 @@ function connexion() {
         .then(res => res.json())
         .then(utilisateurs => {
             // Boucle pour parcourir les objets dans le tableau
-            for (var i = 0; i < utilisateurs.length; i++) {
+            for (let i = 0; i < utilisateurs.length; i++) {
                 // Vérifier si le pseudo et le mot de passe correspondent
 
                 if (utilisateurs[i].pseudo === user.pseudo && utilisateurs[i].password === user.password) {
@@ -172,13 +174,51 @@ function gestion() {
     
 
         $('.menu2').html(
-            '<div class="cardFilm">'+
-            '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
-                '<div class="card-body">'+
-                    ' <h4 class="card-title"><a>Card title</a></h4>'+
-                    '        <p class="card-text">content.</p >'+
-                    '<a href="#" class="btn btn-primary">Button</a>'+
-                    '</div>'+
+            '<div class="cardAdress">'+
+            '<form>'+
+  '<label for="type">Type :</label>'+
+  '<select id="type" name="type" onchange="toggleFields(this.value)">'+
+  '<option value="">categories</option>'+
+    '<option value="film">Film</option>'+
+    '<option value="musique">Musique</option>'+
+  '</select>'+
+ '<br>' +
+ '<div id="filmFields" style="display:none;">' +
+   '<label for="realisateur">Réalisateur :</label>' +
+   ' <input type="text" id="artiste" name="artiste">'+
+   ' <br>'+
+    '<label for="titre">Titre :</label>'+
+    '<input type="text" id="titre" name="titre">'+
+    '<br>'+
+   ' <label for="album">Titre de l\'album :</label>'+
+    '<input type="text" id="album" name="album">'+
+   ' <br>'+
+'    <label for="genre">Genre :</label>'+
+'    <select id="genre" name="genre">'+
+      '<option value="action">Action</option>'+
+      '<option value="comedy">Comedy</option>'+
+      '<option value="sci-fi">Sci-Fi</option>'+
+   ' </select>'+
+  '</div>'+
+  '<div id="musicFields" style="display:none;">'+
+ '<label for="artiste">Artiste :</label>'+ 
+  '<input type="text" id="realisateur" name="realisateur">'+
+  '<br>'+
+  '<label for="titre">Titre :</label>'+
+  '<input type="text" id="titre" name="titre">'+
+ ' <br>'+
+  '<label for="album">Titre de l\'album :</label>'+
+ ' <input type="text" id="album" name="album">'+
+  '<br>'+
+ ' <label for="genre">Genre :</label>'+
+  '<select id="genre" name="genre">'+
+      '<option value="rock">Rock</option>'+
+    '  <option value="pop">Pop</option>'+
+      '<option value="rap">Rap</option>'+
+  '</select>'+
+'</div>'+
+' <div class="btncarre"></div>'+
+'</form>'+
         '</div>'  
         ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
 
@@ -193,7 +233,24 @@ function gestion() {
         '</div>'  
         ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
         }
-     ///////////////////////////////////////////////////////////////////////////////
+
+        function toggleFields(value) {
+            console.log("hello");
+           
+            console.log(value);
+            if (value === "film") {
+              document.getElementById("filmFields").style.display = "block";
+              document.getElementById("musicFields").style.display = "none";
+            } else if (value === "musique") {
+              document.getElementById("filmFields").style.display = "none";
+              document.getElementById("musicFields").style.display = "block";
+            }
+          }
+     
+
+        ///////////////////////////////////////////////////////////////////////////////
+
+
 
 
 // Fonction pour mettre à jour un utilisateur

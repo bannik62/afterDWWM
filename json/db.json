@@ -12,6 +12,7 @@
       "role": "client"
     },
     {
+      "id": 2,
       "nom": "noah",
       "prenom": "vanhs",
       "telephone": "0000000000",
@@ -19,7 +20,21 @@
       "pseudo": "nono",
       "password": "lolo",
       "email": "FF@FF.fr",
-      "id": 2,
+      "role": "admin"
+    }
+  ],
+
+    
+  "stock": [
+    {
+            "id": 2,
+      "nom": "noah",
+      "prenom": "vanhs",
+      "telephone": "0000000000",
+      "adresse": "25 rue des fleur",
+      "pseudo": "nono",
+      "password": "lolo",
+      "email": "FF@FF.fr",
       "role": "admin"
     }
   ]
