@@ -1,3 +1,5 @@
+
+
 let sessionPseudo = sessionStorage.getItem('pseudo')
 let sessionId = sessionStorage.getItem('id')
 // affichage 
@@ -149,7 +151,14 @@ function gestion() {
 
     $('.central').html(''); //je vide la div central
     // je genere une div   
-    $('.central').html('<div class="container-fluid board"><div class="d-flex flex-row justify-content-around w-100 h-100 p-4"><div class="menu1 m-5">1</div> <div class="menu2">2</div><div class="menu3">3</div></div></div> ').css({ 'padding': '2px','border':'3px solid #0bddd2','outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '600px', 'width': '900px' });
+    $('.central').html(
+        '<div class="container d-flex justify-content-around ">'+
+      
+        '<div class="menu1 m-5 bg-light">1</div>'+
+        '<div class="menu2 m-5 bg-light">2</div>'+
+    
+        '</div>'
+        ).css({'padding': '2px','border':'3px solid #0bddd2','outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '1000px', 'width': '1000px' });
     
     $.ajax({
         type: 'GET',
@@ -159,71 +168,80 @@ function gestion() {
       let count = data.length;
       console.log("Le nombre d'utilisateurs est: " + count);
       $('.menu1').html(
-        '<div class="cardFilm "text-bg-light"">'+
-        '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
+        '<div class="cardAdmin " >'+
+        '<div class="bg-dark w-100 h-25" ></div>'+
             '<div class="card-body">'+
                 ' <h4 class="card-title"><a>nombre d\'utilisateur</a></h4>'+
                 '        <p class="card-text">Abonné</p >'+
                 '<h2 style:="color:blue"> '+ count + '</h2>'+
                 '</div>'+
         '</div>'  
-        ).css({ 'color':'white','height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+        ).css({ 'height': '0px', 'width': '0px', 'background': 'black' }).animate({ 'height': '25%', 'width': '25%' });
     }).catch((error) => {
       console.log("Error: " + error);
     });
     
+     $('.menu2').html(
+        '<div class="cardAdmin  ">'+
+        '<div class="bg-dark w-100 h-25" ></div>'+
+           '<div class="card-body d-flex flex-row justify-content-center align-content-center ">'+
+               ' <h4 class="card-title"><a>Formulaire upload</a></h4>'+
 
-        $('.menu2').html(
-            '<div class="cardAdress">'+
-            '<form>'+
-  '<label for="type">Type :</label>'+
-  '<select id="type" name="type" onchange="toggleFields(this.value)">'+
-  '<option value="">categories</option>'+
-    '<option value="film">Film</option>'+
-    '<option value="musique">Musique</option>'+
-  '</select>'+
- '<br>' +
- '<div id="filmFields" style="display:none;">' +
-   '<label for="realisateur">Réalisateur :</label>' +
-   ' <input type="text" id="artiste" name="artiste">'+
-   ' <br>'+
-    '<label for="titre">Titre :</label>'+
-    '<input type="text" id="titre" name="titre">'+
-    '<br>'+
-   ' <label for="album">Titre de l\'album :</label>'+
-    '<input type="text" id="album" name="album">'+
-   ' <br>'+
-'    <label for="genre">Genre :</label>'+
-'    <select id="genre" name="genre">'+
-      '<option value="action">Action</option>'+
-      '<option value="comedy">Comedy</option>'+
-      '<option value="sci-fi">Sci-Fi</option>'+
-   ' </select>'+
-  '</div>'+
-  '<div id="musicFields" style="display:none;">'+
- '<label for="artiste">Artiste :</label>'+ 
-  '<input type="text" id="realisateur" name="realisateur">'+
-  '<br>'+
-  '<label for="titre">Titre :</label>'+
-  '<input type="text" id="titre" name="titre">'+
- ' <br>'+
-  '<label for="album">Titre de l\'album :</label>'+
- ' <input type="text" id="album" name="album">'+
-  '<br>'+
- ' <label for="genre">Genre :</label>'+
-  '<select id="genre" name="genre">'+
-      '<option value="rock">Rock</option>'+
-    '  <option value="pop">Pop</option>'+
-      '<option value="rap">Rap</option>'+
-  '</select>'+
-'</div>'+
-' <div class="btncarre"></div>'+
-'</form>'+
-        '</div>'  
-        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+         ' <form>'+
+                '<label for="type" class="" >Type :</label>'+
+                        '<select id="type" name="type" class="" onchange="toggleFields(this.value)">'+
+                        ' <option value="">categories</option>'+
+                            '<option value="film">Film</option>'+
+                            '<option value="musique">Musique</option>'+
+                        '</select>'+
+    '<br> '+
+                        '<div id="film" style="display:none;">' +
+                        '<label for="realisateur" class="">Réalisateur :</label> '+
+                        '<input type="text"   class="" id="artiste" name="artiste">'+
+            '<br>'+
+                            '<label for="titre"   class="">Titre :</label>'+
+                            '<input type="text" class="" id="titre" name="titre">'+
+                        ' <br>'+
+                    ' <label for="annee"   class="">année :</label>'+
+                            '<input type="text" class="" id="album" name="album">'+
+            '<br>'+
+                            '<label for="genre">Genre :</label>'+
+                        '<select id="genre" name="genre">'+
+                            '<option value="action">Action</option>'+
+                            '<option value="comedy">Comedy</option>'+
+                            '<option value="sci-fi">Sci-Fi</option>'+
+                        '</select>'+
+                '</div>'+
+        '<div id="music"  style="display:none;" >'+
+                '<label for="artiste">Artiste :</label>' +
+                '<input type="text" id="realisateur" name="realisateur">'+
+                '<br>'+
+                '<label for="titre">Titre :</label>'+
+                '<input type="text" id="titre" name="titre">'+
+                ' <br>'+
+                '<label for="album">Titre de l\album :</label>'+
+                 '<input type="text" id="album" name="album">'+
+                '<br>'+
+                 '<label for="genre">Genre :</label>'+
+                '<select id="genre" name="genre">'+
+                    '<option value="rock">Rock</option>'+
+                     ' <option value="pop">Pop</option>'+
+                    '<option value="rap">Rap</option>'+
+                '</select>'+
+         '</div>'+
+       
+         '<div  id="upload" class="upload " style="display:none;">'+
+                '<label for="envois">Envois :</label>'+
+                '<input type="submit" id="envois" value="upload" class="btncarre" >'+
+        '</div>'+
+    ' </form>'+
+        '</div>'+ 
+        
+        '</div>'
+        ).css({ 'height': '0px', 'width': '0px' }).animate({'height': '25%','width': '25%' });
 
         $('.menu3').html(
-            '<div class="cardFilm">'+
+            '<div class="cardAdmin">'+
             '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
                 '<div class="card-body">'+
                     ' <h4 class="card-title"><a>Card title</a></h4>'+
@@ -239,11 +257,14 @@ function gestion() {
            
             console.log(value);
             if (value === "film") {
-              document.getElementById("filmFields").style.display = "block";
-              document.getElementById("musicFields").style.display = "none";
+              document.getElementById("film").style.display = "block";
+              document.getElementById("music").style.display = "none";
+              document.getElementById("upload").style.display = "block";
             } else if (value === "musique") {
-              document.getElementById("filmFields").style.display = "none";
-              document.getElementById("musicFields").style.display = "block";
+              document.getElementById("film").style.display = "none";
+              document.getElementById("music").style.display = "block";           
+              document.getElementById("upload").style.display = "block";
+
             }
           }
      

@@ -25,10 +25,10 @@
   ],
 
     
-  "stock": [
+  "film": [
     {
             "id": 2,
-      "nom": "noah",
+      "artiste": "noah",
       "prenom": "vanhs",
       "telephone": "0000000000",
       "adresse": "25 rue des fleur",
