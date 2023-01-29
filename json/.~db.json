@@ -48,6 +48,13 @@
       "annee": "1990",
       "genre": "comedy",
       "id": 2
+    },
+    {
+      "realisateur": "spilberg",
+      "titre": "indiana jones",
+      "annee": "1990",
+      "genre": "comedy",
+      "id": 3
     }
   ]
 }

@@ -1,28 +1,26 @@
 body {
-    height: auto;
-    background: black
-        /* pour positionner le dégradé au milieu */
+
+    background-image: url(../image/ciel.jpg);
+    background-attachment: fixed;
+    margin: 0px;
+    padding: 0px;
+    /* pour positionner le dégradé au milieu */
 }
 
 .navbar {
-    height: 160px;
+    height: 190px;
+    padding: 4px;
+    border-bottom: 1px solid #0bddd2;
     background-size: cover;
-    background-image: url(../image/nav.png);
+    background: #2b2b2b4c;
     background-blend-mode: difference;
     z-index: 1;
 
 
 }
-.fight{
-    
-   height: 200px;
-margin-left: 30%;
-border-radius: 50%;
-}
 
-.fight:hover {
-    transform: scale(2);
-  }
+
+
 .main {
     width: 100%;
     display: flex;
@@ -31,7 +29,7 @@ border-radius: 50%;
 }
 
 .right-menu {
-    flex-basis: 20%;
+    flex-basis: 30%;
 
 }
 
@@ -50,13 +48,9 @@ footer {
     float: right;
 }
 
-.navbar-left {
-    display: flex;
-    justify-content: space-around;
-}
 
 .bgmain {
-    max-width: 600px;
+    max-width: 800px;
     min-width: 300px;
     max-height: 500px;
     min-height: 50px;
@@ -71,11 +65,11 @@ footer {
 .affichage {
     font-family: 'Bangers', cursive;
     position: fixed;
-    top: 25%;
-    margin: 1px;
+    top: 32%;
+
     border: 1px solid black;
     background: linear-gradient(to bottom, #e0e0e0, #000000);
-    background-size: 50%;
+    ;
     color: rgb(2, 2, 2);
     font-size: 3rem;
     overflow: hidden;
@@ -108,20 +102,22 @@ h1 {
     font-size: 7rem;
     word-spacing: 25px;
     letter-spacing: 5px;
-    display: grid;
     z-index: 1;
 
 }
-.p{    
-font-family: 'Bangers', cursive;
+
+
+.label {
+    font-family: 'Bangers', cursive;
 }
 
-.label{    
-font-family: 'Bangers', cursive;
+.li {
+    font-family: 'Bangers', cursive;
+
 }
 
 .cd {
-      background: white;
+    background: white;
     border-radius: 50%;
     animation: rotation 1s linear infinite;
     transform-origin: center center;
@@ -138,13 +134,17 @@ font-family: 'Bangers', cursive;
 }
 
 .divtexte {
+    font-family: 'Bangers', cursive;
+    padding: 15px;
     max-width: 650px;
-    max-height: 300px;
-    background-color: #0000009a;
-    color: white;
-    border: 3px solid white;
+    max-height: 400px;
+    background-color: #ffffffc0;
+    color: rgb(0, 0, 0);
+    border: 3px solid rgb(152, 152, 152);
     clear: both;
-    overflow: scroll;
+    overflow-y: scroll;
+    font-size: 2rem;
+
 
 }
 
@@ -156,6 +156,7 @@ font-family: 'Bangers', cursive;
     margin-top: 10px;
 
 }
+
 .logob {
     width: 160px;
     border-radius: 40%;
@@ -164,6 +165,7 @@ font-family: 'Bangers', cursive;
 
 
 }
+
 .logoc {
     position: fixed;
     top: 290px;
@@ -184,8 +186,10 @@ font-family: 'Bangers', cursive;
     box-shadow: 3px 3px 4px #cecece,
         -7px -7px 14px #2b2b2b;
     border: 1px solid black;
-    width: 360px;
-    max-height: auto;
+    width: 340px;
+    height: 250px;
+
+
 }
 
 .map {
@@ -201,22 +205,22 @@ font-family: 'Bangers', cursive;
 .central {
     border: 2px solid #0bddd2;
     background: black;
-    width: 1000px;
+    margin: 40px;
     height: auto;
     z-index: 1;
-    margin: 10px;
+    margin: 0;
 }
 
 .central2 {
     background: black;
     border: 2px solid #0bddd2;
-    margin: 10px;
+    margin: 0;
     z-index: 1;
 }
 
 
 .btn {
-  letter-spacing: 3px;
+    letter-spacing: 3px;
     display: flex;
     margin: 10px;
     display: flex;
@@ -248,7 +252,7 @@ font-family: 'Bangers', cursive;
     transform: translateY(-1px);
     background-size: cover;
     background-image: linear-gradient(to bottom, transparent, #000000), url(../image/reflet.png);
-    text-decoration: underline 2px  red;
+    text-decoration: underline 2px red;
 }
 
 .cardAdress {
@@ -262,6 +266,7 @@ font-family: 'Bangers', cursive;
     background-color: gainsboro;
     opacity: 10;
     padding: 3px;
+
 }
 
 
@@ -275,18 +280,18 @@ font-family: 'Bangers', cursive;
     background-color: gainsboro;
     opacity: 10;
     padding: 3px;
-    text-shadow: 3px 3px 4px #121212,
-        -7px -7px 14px #ffffff;
+
 }
 
 .cardFilm {
     min-width: 30%;
     max-width: 100%;
-    height: 200px;
-    background-color: darkgray;
+    height: 240px;
+    color: darkgray;
     border-radius: 17px;
-    background: #010101b2;
+    background: black;
 }
+
 .cardAdmin {
     display: flex;
     flex-direction: column;
@@ -297,8 +302,9 @@ font-family: 'Bangers', cursive;
     height: 500px;
     background-color: darkgray;
     border-radius: 17px;
-  
+
 }
+
 h5 {
     padding: 3px;
 }
@@ -308,7 +314,7 @@ h5 {
     flex-direction: row;
     justify-content: space-around;
     width: 1200px;
-    height: 1000px ;
+    height: 1000px;
 
 
 }

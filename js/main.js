@@ -1,26 +1,25 @@
 
 
-let sessionPseudo = sessionStorage.getItem('pseudo')
-let sessionId = sessionStorage.getItem('id')
-// affichage 
 
-
-
-
-
-// $(document).ready(
-//     function titre() {
-//         console.log(typeof sessionPseudo);
-
-//         if (typeof sessionPseudo == "null" || sessionPseudo === "") {
-//             $("#user").html("")
-
-//         }
-//         else {
-//             $("#user").html('<h5> bienvenue ' + sessionPseudo + '</h5>');
-//         }
-
-//     });
+$(document).ready((() => {
+    let sessionPseudo = sessionStorage.getItem('pseudo')
+    let sessionId = sessionStorage.getItem('id')
+    if (sessionPseudo === "nono") {
+        console.log(sessionPseudo)
+        $("#bouton").html(
+            '<div style="width:120px; class=" d-flex justify-content-between align-items-center">' +
+            '<a class="nav-link btncarre btn-dark p-3 m-2" height="100px" onclick="gestion()" href="#">gestion</a>' +
+            '</div>' +
+            '<div style="width:120px;">' +
+            '<a class="nav-link btncarre btn-dark p-3 m-2 mt-2" href="index.html">acceuil</a>' +
+            '</div>'
+        )
+    }
+    else {
+        $("#bouton").html("");
+    }
+})
+);
 
 function deco() {
     sessionStorage.clear('pseudo')
@@ -97,7 +96,6 @@ function addUtilisateur() {
 // ouverture de session 
 function connexion() {
 
-
     console.log("hello world");
     let user = {
         pseudo: $("#pseudo_co").val(),
@@ -133,143 +131,178 @@ function connexion() {
 
 function gestion() {
 
-
-  
-  $.ajax({
-    type: 'GET',
-    url: 'http://localhost:3000/utilisateurs',
-    dataType: 'json',
-    success: function (data) {
-      let count = data.length;
-      console.log("Le nombre d'utilisateurs est: " + count);
-    },
-    error: function (xhr, status, error) {
-      console.log("Error: " + error);
-    }
-  });
-    
-
-    $('.central').html(''); //je vide la div central
-    // je genere une div   
-    $('.central').html(
-        '<div class="container d-flex justify-content-around ">'+
-      
-        '<div class="menu1 m-5 bg-light">1</div>'+
-        '<div class="menu2 m-5 bg-light">2</div>'+
-    
-        '</div>'
-        ).css({'padding': '2px','border':'3px solid #0bddd2','outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '1000px', 'width': '1000px' });
-    
     $.ajax({
         type: 'GET',
         url: 'http://localhost:3000/utilisateurs',
         dataType: 'json',
-    }).then((data)=>{
-      let count = data.length;
-      console.log("Le nombre d'utilisateurs est: " + count);
-      $('.menu1').html(
-        '<div class="cardAdmin " >'+
-        '<div class="bg-dark w-100 h-25" ></div>'+
-            '<div class="card-body">'+
-                ' <h4 class="card-title"><a>nombre d\'utilisateur</a></h4>'+
-                '        <p class="card-text">Abonné</p >'+
-                '<h2 style:="color:blue"> '+ count + '</h2>'+
-                '</div>'+
-        '</div>'  
-        ).css({ 'height': '0px', 'width': '0px', 'background': 'black' }).animate({ 'height': '25%', 'width': '25%' });
-    }).catch((error) => {
-      console.log("Error: " + error);
-    });
-    
-     $('.menu2').html(
-        '<div class="cardAdmin  ">'+
-        '<div class="bg-dark w-100 h-25" ></div>'+
-           '<div class="card-body d-flex flex-row justify-content-center align-content-center ">'+
-               ' <h4 class="card-title"><a>Formulaire upload</a></h4>'+
-
-         ' <form>'+
-                '<label for="type" class="" >Type :</label>'+
-                        '<select id="type" name="type" class="" onchange="toggleFields(this.value)">'+
-                        ' <option value="">categories</option>'+
-                            '<option value="film">Film</option>'+
-                            '<option value="musique">Musique</option>'+
-                        '</select>'+
-    '<br> '+
-                        '<div id="film" style="display:none;">' +
-                        '<label for="realisateur" class="">Réalisateur :</label> '+
-                        '<input type="text"   class="" id="artiste" name="artiste">'+
-            '<br>'+
-                            '<label for="titre"   class="">Titre :</label>'+
-                            '<input type="text" class="" id="titre" name="titre">'+
-                        ' <br>'+
-                    ' <label for="annee"   class="">année :</label>'+
-                            '<input type="text" class="" id="album" name="album">'+
-            '<br>'+
-                            '<label for="genre">Genre :</label>'+
-                        '<select id="genre" name="genre">'+
-                            '<option value="action">Action</option>'+
-                            '<option value="comedy">Comedy</option>'+
-                            '<option value="sci-fi">Sci-Fi</option>'+
-                        '</select>'+
-                '</div>'+
-        '<div id="music"  style="display:none;" >'+
-                '<label for="artiste">Artiste :</label>' +
-                '<input type="text" id="realisateur" name="realisateur">'+
-                '<br>'+
-                '<label for="titre">Titre :</label>'+
-                '<input type="text" id="titre" name="titre">'+
-                ' <br>'+
-                '<label for="album">Titre de l\album :</label>'+
-                 '<input type="text" id="album" name="album">'+
-                '<br>'+
-                 '<label for="genre">Genre :</label>'+
-                '<select id="genre" name="genre">'+
-                    '<option value="rock">Rock</option>'+
-                     ' <option value="pop">Pop</option>'+
-                    '<option value="rap">Rap</option>'+
-                '</select>'+
-         '</div>'+
-       
-         '<div  id="upload" class="upload " style="display:none;">'+
-                '<label for="envois">Envois :</label>'+
-                '<input type="submit" id="envois" value="upload" class="btncarre" >'+
-        '</div>'+
-    ' </form>'+
-        '</div>'+ 
-        
-        '</div>'
-        ).css({ 'height': '0px', 'width': '0px' }).animate({'height': '25%','width': '25%' });
-
-        $('.menu3').html(
-            '<div class="cardAdmin">'+
-            '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">'+
-                '<div class="card-body">'+
-                    ' <h4 class="card-title"><a>Card title</a></h4>'+
-                    '        <p class="card-text">content.</p >'+
-                    '<a href="#" class="btn btn-primary">Button</a>'+
-                    '</div>'+
-        '</div>'  
-        ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+        success: function (data) {
+            let count = data.length;
+            console.log("Le nombre d'utilisateurs est: " + count);
+        },
+        error: function (xhr, status, error) {
+            console.log("Error: " + error);
         }
+    });
 
-        function toggleFields(value) {
-            console.log("hello");
-           
-            console.log(value);
-            if (value === "film") {
-              document.getElementById("film").style.display = "block";
-              document.getElementById("music").style.display = "none";
-              document.getElementById("upload").style.display = "block";
-            } else if (value === "musique") {
-              document.getElementById("film").style.display = "none";
-              document.getElementById("music").style.display = "block";           
-              document.getElementById("upload").style.display = "block";
 
-            }
-          }
-     
+    $('.central').html(''); //je vide la div central
+    // je genere une div   
+    $('.central').html(
+        '<div class="container d-flex justify-content-around ">' +
 
-        ///////////////////////////////////////////////////////////////////////////////
+        '<div class="menu1 m-5 bg-light">1</div>' +
+        '<div class="menu2 m-5 bg-light">2</div>' +
+
+        '</div>'
+    ).css({ 'padding': '2px', 'border': '3px solid #0bddd2', 'outline': '5px solid white', 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '1000px', 'width': '1000px' });
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/utilisateurs',
+        dataType: 'json',
+    }).then((data) => {
+        let count = data.length;
+        console.log("Le nombre d'utilisateurs est: " + count);
+        $('.menu1').html(
+            '<div class="cardAdmin " >' +
+                '<div class="bg-dark w-100 h-25" ></div>' +
+            '<div class="card-body compteur">' +
+                ' <h4 class="card-title"><a>nombre d\'utilisateur</a></h4>' +
+                '<p class="card-text">Abonné</p >' +
+                '<h2 style:="color:blue"> ' + count + '</h2>' +
+            '</div>' 
+        ).css({ 'height': '0px', 'width': '0px',  }).animate({ 'height': '25%', 'width': '25%' });
+    }).catch((error) => {
+        console.log("Error: " + error);
+    });
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/film',
+        dataType: 'json',
+    }).then((data) => {
+        let count = data.length;
+        $('.compteur').prepend(
+            ' <h4 class="card-title"><a>nombre de films</a></h4>' +
+            '        <p class="card-text">stock</p >' +
+            '<h2 style:="color:blue"> ' + count + '</h2>' +
+         '</div>'
+        ).css({ 'height': '0px', 'width': '0px',  }).animate({ 'height': '25%', 'width': '25%' });
+    }).catch((error) => {
+        console.log("Error: " + error);
+    });
+
+
+
+    $('.menu2').html(
+        '<div class="cardAdmin  ">' +
+        '<div class="bg-dark w-100 h-25" ></div>' +
+        '<div class="card-body d-flex flex-row justify-content-center align-content-center ">' +
+        ' <h4 class="card-title"><a>Formulaire upload</a></h4>' +
+
+        ' <form>' +
+        '<label for="type" class="" >Type :</label>' +
+        '<select id="type" name="type" class="" onchange="toggleFields(this.value)">' +
+        ' <option value="">categories</option>' +
+        '<option value="film">Film</option>' +
+        '<option value="musique">Musique</option>' +
+        '</select>' +
+        '<br> ' +
+        '<div id="film" style="display:none;">' +
+        '<label for="realisateur" class="">Réalisateur :</label> ' +
+        '<input type="text"   class="" id="realisateur" name="artiste">' +
+        '<br>' +
+        '<label for="titre"   class="">Titre :</label>' +
+        '<input type="text" class="" id="titre" name="titre">' +
+        ' <br>' +
+        ' <label for="annee"   class="">année :</label>' +
+        '<input type="text" class="" id="annee" name="album">' +
+        '<br>' +
+        '<label for="genre">Genre :</label>' +
+        '<select id="genre" name="genre">' +
+        '<option value="action">Action</option>' +
+        '<option value="comedy">Comedy</option>' +
+        '<option value="sci-fi">Sci-Fi</option>' +
+        '<option value="sci-fi">Fantastique</option>' +
+
+        '</select>' +
+        '</div>' +
+        '<div id="music"  style="display:none;" >' +
+        '<label for="artiste">Artiste :</label>' +
+        '<input type="text" id="realisateur" name="realisateur">' +
+        '<br>' +
+        '<label for="titre">Titre :</label>' +
+        '<input type="text" id="titre" name="titre">' +
+        ' <br>' +
+        '<label for="album">Titre de l\album :</label>' +
+        '<input type="text" id="album" name="album">' +
+        '<br>' +
+        '<label for="genre">Genre :</label>' +
+        '<select id="genre" name="genre">' +
+        '<option value="rock">Rock</option>' +
+        ' <option value="pop">Pop</option>' +
+        '<option value="rap">Rap</option>' +
+        '</select>' +
+        '</div>' +
+
+        '<div  id="upload" class="upload " style="display:none;">' +
+        '<label for="envois">Envois :</label>' +
+        '<button type="button" id="envois" onclick="ajoutFilm()" class="btncarre" >envois</button>' +
+        '</div>' +
+        ' </form>' +
+        '</div>' +
+
+        '</div>'
+    ).css({ 'height': '0px', 'width': '0px' }).animate({ 'height': '25%', 'width': '25%' });
+
+    $('.menu3').html(
+        '<div class="cardAdmin">' +
+        '<img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">' +
+        '<div class="card-body">' +
+        ' <h4 class="card-title"><a>Card title</a></h4>' +
+        '        <p class="card-text">content.</p >' +
+        '<a href="#" class="btn btn-primary">Button</a>' +
+        '</div>' +
+        '</div>'
+    ).css({ 'height': '0px', 'width': '0px', 'display': 'block', 'background': 'black' }).animate({ 'height': '500px', 'width': '800px' });
+}
+
+function toggleFields(value) {
+    console.log(value);
+    if (value === "film") {
+        document.getElementById("film").style.display = "block";
+        document.getElementById("music").style.display = "none";
+        document.getElementById("upload").style.display = "block";
+    } else if (value === "musique") {
+        document.getElementById("film").style.display = "none";
+        document.getElementById("music").style.display = "block";
+        document.getElementById("upload").style.display = "block";
+
+    }
+}
+
+function ajoutFilm() {
+    $.ajax({
+        url: 'http://localhost:3000/film',
+        type: 'POST',
+        data: {
+            "realisateur": $('#realisateur').val(),
+            "titre": $('#titre').val(),
+            "annee": $('#annee').val(),
+            "genre": $('#genre').val(),
+        },
+        success: function (response) {
+            console.log(response);
+            console.log("cccccc");
+
+        }
+    });
+
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -322,15 +355,13 @@ $(document).ready(function () {
 
 function find() {
 
-
     $.ajax({
+
         url: 'http://www.omdbapi.com/',// La ressource ciblée
         type: 'GET', // Le type de la requête HTTP
-        data: { val1: 'hello', val2: 'hello2' },
         data: {
             apiKey: key, s: $(this).val()
         },
-
         // Fonction en cas de success de la requête
         success: function (reponse) {
             console.log(reponse);
@@ -380,12 +411,9 @@ function find() {
 
         },
 
-
-
         error: function (error) {
             // Fonction en cas d'erreur
         },
-
 
 
         complete: function (result, status) {

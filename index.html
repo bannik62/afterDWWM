@@ -19,15 +19,15 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg   ">
-        <div class="container-fluid d-flex   flex-wrap ">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid d-flex flex-wrap p-5">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <i class="fa-sharp fa-solid fa-door-open"></i>
             <div class="collapse navbar-collapse " id="navbarNav">
-                <div class="navbar-left d-flex justify-content-around">
+                <div class="d-flex justify-content-around">
                     <a class="nav-link btn btn-dark" href="#" data-bs-toggle="modal"
                         data-bs-target="#connexion">Connexion</a>
                     <a class="nav-link btn btn-dark" href="#" data-bs-toggle="modal"
@@ -35,31 +35,15 @@
                     <a class="nav-link btn btn-dark" onclick="deco()" href="#">Deconnexion</a>
 
 
-                    <script>
-                        $(document).ready((() => {
-                            let session = sessionStorage.pseudo
-                            // if ( session === "nono") {
-                            console.log(session)
-                            $("#bouton").html(
-                                '<div style="width:120px; class=" d-flex justify-content-between align-items-center">' +
-                                '<a class="nav-link btncarre btn-dark p-3 m-2" height="100px" onclick="gestion()" href="#">gestion</a>' +
-                                '</div>' +
-                                '<div style="width:120px;">' +
-                                '<a class="nav-link btncarre btn-dark p-3 m-2 mt-2" href="index.html">acceuil</a>' +
-                                '</div>'
-                                //    )}
-                                //    else{
-                                //      $("#bouton").html("");
-                            )
-                        }))
-                    </script>
-                    <div style="width:400px;" id="bouton" class="d-flex flex-column align-content-center justify-content-center "> </div>
+
+                    <div style="width:400px;" id="bouton"
+                        class="d-flex flex-column align-content-center justify-content-center "> </div>
 
                     <div class="d-flex flex-column align-items-center ">
 
                         <img src="image/logorbg.png" class="logoh " alt="logo">
-                        <p>Le magasin </p>
-                        </div>
+                        <p class="text-white-50 ">Le magasin </p>
+                    </div>
                 </div>
 
             </div>
@@ -67,25 +51,24 @@
 
     </nav>
     <div
-        class="container-liquid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
+        class="container-fluid d-flex flex-column justify-content-center align-content-center align-items-center flex-wrap">
 
         <div class="container-fluid affichage  bg-dark" width="30">
             <p class="affichageTexte"> <--- Heure d'ouverture du magasin: </p>
         </div>
+        <div class="d-flex  justify-content-around flex-row w-100 ">
+            <h1 class="titre text-white text-center align-items-center p-4 container-fluid">Planete DvD <span
+                    class="spancd mx-auto rounded-circle"> <img src="image/cd.png" class="cd rounded-circle mb-2"
+                        alt="cdrom" width="90px" height="90px"></span></h1>
+        </div>
+        <div class="central container-fluid ">
 
-        <h1 class="titre text-center text-white align-items-center p-4 container-fluid">Planete DvD <span
-                class="spancd  rounded-circle"> <img src="image/cd.png" class="cd rounded-circle mb-2" alt="cdrom"
-                    width="90px" height="90px"></span></h1>
-        <div class="central container ">
-
-            <div class="container m-4 main d-flex flex-wrap ">
+            <div class="container-fluid p-4 main  flex-wrap ">
 
                 <div id="" class="right-menu m-3">
                     <ul class="list-group text-center ">
-                        <li class="list-group-item">rechercher un film
-                            <input type="text" id="search" class="form-control">
-                            <button id="reset" class="m-2">Reset</button>
-                        </li>
+                        <li class="list-group-item text-white bg-dark "><p>Rechercher un film</p> </li>
+                        <li class="list-group-item"> <input type="text" id="search" class="form-control"><button id="reset" class="m-2">Reset</button></li>
                         <li class="list-group-item">Catalogue du magasin </li>
                         <li class="list-group-item">Nous contacter</li>
                     </ul>
@@ -96,7 +79,9 @@
 
                 <div class="bgmain img-fluid">
                     <div class=" divtexte m-5">
-                        <p class="p-5 text-wrap" id="intro">
+                        <h2 class="text-center">Planete DVD </h2>
+                        <hr>
+                        <p class="p-5 text-wrap text-center" id="intro">
                             <img src="image/tboys.jpg" class=" float-right m-2 " width="250px" height="200px" alt="">
                             Planete DVD est une boutique hors du temps à Calais. <br> Ici, on trouve
                             beaucoup de films <br>
@@ -119,17 +104,17 @@
         <div
             class=" central2 container-fluid m-5 d-flex justify-content-around align-items-lg-center flex-md-row flex-sm-column  ">
 
-            <div class="caroussel m-3  mx-auto">
-                <div id="carouselExampleSlidesOnly" class="carousel slide " data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active mx-auto w-100">
-                            <img src="image/FB_IMG_1673561018825.jpg" class="d-block w-100 " alt="...">
+            <div class="caroussel ">
+                <div id="carouselExampleSlidesOnly" class=" slide " data-bs-ride="carousel">
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active  ">
+                            <img src="image/FB_IMG_1673561018825.jpg" class="d-block w-75  " alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="image/FB_IMG_1673561192570.jpg" class="d-block w-100 " alt="">
+                            <img src="image/FB_IMG_1673561192570.jpg" class="d-block w-75" alt="">
                         </div>
                         <div class="carousel-item  ">
-                            <img src="image/FB_IMG_1673561089302.jpg" class="d-block w-100 " alt="...">
+                            <img src="image/FB_IMG_1673561089302.jpg" class="d-block w-75 " alt="...">
                         </div>
                     </div>
                 </div>
@@ -189,7 +174,6 @@
 
         <div class="logob align-self-center justify-content-center ">
             <img src="image/logorbg.png" class="logo img-fluid" alt="logo">
-         
         </div>
         <div class="align-self-sm-end ">
             <p>
